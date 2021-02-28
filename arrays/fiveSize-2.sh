@@ -8,7 +8,7 @@ do
 	temp=-1
 	while [ $temp -lt 0 ]
 	do
-		echo "Ingresa un numero" 
+		echo "Ingresa un numero"  
 		read temp
 		if [ $temp -ge 0 ]; then
 			arr+=($temp)

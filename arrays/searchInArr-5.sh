@@ -6,7 +6,7 @@ arr=()
 
 addElement() {
 	opcAdd=2
-	while [ $opcAdd -eq 2 ]
+	while [ $opcAdd -eq 2 ] 
 	do
 		clear
 		echo "Ingresa el elemento que deseas agregar al arreglo"
@@ -24,13 +24,7 @@ searchElement() {
 	found=0
 	if [ ${#arr[@]} -gt 0 ]; then	
 		echo -n "Introduce el elemento que deseas buscar: "
-		read find		
-		# if [[ "${arr[@]}" =~ "$find" ]]
-		# then
-		# 	echo "El elemento fue encontrado"
-		# 	else
-		# 	echo "El elemento no forma parte del arreglo"
-		# fi		
+		read find			
 		for i in "${!arr[@]}"
 		do
 			if [[ "${arr[$i]}" = "${find}" ]]; then
@@ -50,9 +44,9 @@ searchElement() {
 printArr() {
 	if [ ${#arr[@]} -gt 0 ]; then
 		clear
-		for i in "${arr[@]}"
+		for i in "${!arr[@]}"
 		do
-			echo $i
+			echo "Posicion: " $i " | " ${arr[$i]}
 		done
 	else
 		echo ""

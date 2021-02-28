@@ -6,29 +6,34 @@
 
 fillArrs() {
 	arrStr=()
-	arrLen=()
+	arrLen=() 
 	for i in $(seq 1 $1)
 	do
-		echo "Ingresa una cadena de texto"
+		echo "$i) Ingresa una cadena de texto"
 		read str
 		arrStr+=($str)
 		arrLen+=(${#str})
 	done
 
 	echo ""
-	for i in $(seq 0 ${#arrStr[@]}) 
+	for i in $(seq 0 $((${#arrStr[@]} - 1))) 
 	do
-		echo ${arrLen[$i]} " - " ${arrStr[$i]}
+		echo "$(($i+1))) Longitud: ${arrLen[$i]}  |  Cadena: ${arrStr[$i]}"
 	done		
+	echo ""
 }
 
 lenght=0
 while [ $lenght -lt 1 ]
 do
+	clear
 	echo -n "ingresa la longitud de los arreglos: "
 	read lenght
 	if [ $lenght -lt 1 ]; then
 		echo "La longitud debe ser mayor a 0"
+		echo ""
+		echo "Presiona enter para continuar"
+		read
 	fi
 done
 

@@ -4,5 +4,5 @@
 clear
 arr=( 10 20 30 40 50 )
 echo -n "Los valores del arreglo son: "
-echo ${arr[@]}
+echo ${arr[@]} 
 echo ""

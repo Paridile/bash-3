@@ -5,7 +5,7 @@
 # otra función distinta.
 
 arr=()
-fillArr() {
+fillArr() { 
 	for i in $(seq 1 $1)
 	do
 		arr+=($(($i * $2)))		
@@ -14,10 +14,16 @@ fillArr() {
 
 printArr(){	
 	echo ""
-	for i in "${arr[@]}"
+	for i in "${!arr[@]}"
 	do
-		echo $i
-	done	
+		echo -n ${arr[$i]}
+		if [ $(($i+1)) -ne ${#arr[@]} ]; then
+			echo -n ", "
+		else
+			echo "."
+		fi		
+	done
+	echo ""
 }
 
 lenght=0
