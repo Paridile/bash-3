@@ -109,8 +109,7 @@ potencia() {
 	do
 		read -p "Escribe la division: " exp
 		if [[ $exp =~ $rgxPlus ]]; then
-			operation=(${exp//'^'/ })
-			# localRes=${operation[0]}
+			operation=(${exp//'^'/ })			
 			for i in $( seq 1 ${operation[1]})
 			do
 				localRes=$(bc <<< "scale=2; $localRes * ${operation[0]}")							
@@ -131,9 +130,7 @@ raizCuadrada() {
 	while [ $error -eq 1 ]
 	do
 		read -p "Escribe el numero a sacar raiz cuadrada: " exp
-		if [[ $exp =~ $rgxPlus ]]; then
-			
-			# echo "scale=2; sqrt (${exp[$i]})" | bc -l
+		if [[ $exp =~ $rgxPlus ]]; then					
 			localRes=$(bc <<< "scale=2; sqrt (${exp[$i]})")
 			resultado=$localRes
 			echo $resultado
