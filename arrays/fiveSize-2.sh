@@ -2,15 +2,16 @@
 # mediante un ciclo y los muestre por pantalla.
 
 clear
+rgx='^[1-9]+$'
 arr=()
 for i in $(seq 1 5)
 do
 	temp=-1
-	while [ $temp -lt 0 ]
+	while ! [[ "${temp}" =~ ${rgx}  ]]
 	do
 		echo "Ingresa un numero"  
 		read temp
-		if [ $temp -ge 0 ]; then
+		if [[ $temp =~ $rgx ]]; then
 			arr+=($temp)
 			else
 			echo "Debes ingresar numeros positivos"

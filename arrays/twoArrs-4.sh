@@ -37,7 +37,7 @@ do
 		echo "Presiona enter para continuar"
 		read
 	fi
-done
+done 
 
 fillArrs $lenght
 

@@ -24,7 +24,7 @@ printArr(){
 		fi		
 	done
 	echo ""
-}
+} 
 
 lenght=0
 mul=0
