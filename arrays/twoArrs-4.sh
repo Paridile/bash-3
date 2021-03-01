@@ -10,17 +10,19 @@ fillArrs() {
 	for i in $(seq 1 $1)
 	do
 		echo "$i) Ingresa una cadena de texto"
-		read str
-		arrStr+=($str)
-		arrLen+=(${#str})
+		read str			
+		arrStr+=("$(printf '%s\n' "$str")")
+		arrLen+=(${#str})		        
 	done
 
 	echo ""
-	for i in $(seq 0 $((${#arrStr[@]} - 1))) 
-	do
-		echo "$(($i+1))) Longitud: ${arrLen[$i]}  |  Cadena: ${arrStr[$i]}"
-	done		
+	
+	for i in $(seq 0 $((${#arrStr[@]} - 1)))	
+	do		
+		echo "Longitud: ${arrLen[$i]} | Cadena: ${arrStr[$i]}"		
+	done
 	echo ""
+
 }
 
 lenght=0

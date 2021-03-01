@@ -18,7 +18,7 @@ suma() {
 				fi
 				localRes=$(bc <<< "scale=2; $localRes + $sum")								
 			done	
-			echo $localRes
+			echo " = " $localRes
 			resultado=$localRes
 			error=0
 		else
@@ -45,7 +45,7 @@ resta() {
 				fi				
 				localRes=$(bc <<< "scale=2; $sum - $localRes")				
 			done		
-			echo $localRes		
+			echo " = " $localRes		
 			resultado=$localRes
 			error=0
 		else
@@ -73,7 +73,7 @@ multiplicacion() {
 				localRes=$(bc <<< "scale=2; $sum * $localRes")			
 				
 			done		
-			echo $localRes		
+			echo " = " $localRes		
 			resultado=$localRes
 			error=0
 		else
@@ -92,7 +92,7 @@ division() {
 		if [[ $exp =~ $rgxPlus ]]; then
 			operation=(${exp//'/'/ })			
 			localRes=$(bc <<< "scale=2; ${operation[0]} / ${operation[1]}")				
-			echo $localRes
+			echo " = " $localRes
 			resultado=$localRes
 			error=0
 		else
@@ -107,14 +107,14 @@ potencia() {
 	error=1
 	while [ $error -eq 1 ]
 	do
-		read -p "Escribe la division: " exp
+		read -p "Escribe la potencia: " exp
 		if [[ $exp =~ $rgxPlus ]]; then
 			operation=(${exp//'^'/ })			
 			for i in $( seq 1 ${operation[1]})
 			do
 				localRes=$(bc <<< "scale=2; $localRes * ${operation[0]}")							
 			done			
-			echo $localRes
+			echo " = " $localRes
 			resultado=$localRes
 			error=0
 		else
@@ -133,7 +133,7 @@ raizCuadrada() {
 		if [[ $exp =~ $rgxPlus ]]; then					
 			localRes=$(bc <<< "scale=2; sqrt (${exp[$i]})")
 			resultado=$localRes
-			echo $resultado
+			echo " = " $resultado
 			error=0
 		else
 			echo "No has introducido la operacion de manera correcta"
